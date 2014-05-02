@@ -10,6 +10,8 @@ public class Monster : MonoBehaviour {
 	private float interval = 0.0f;
 	private float intervalMax = 0.2f;
 	private int hp = 10;    //monster hp
+	public bool isFireMonster = false; //true  일경 우fireMonster
+	private Monster[] otherMonster = null;
 
 
 	public enum MonsterState
@@ -28,6 +30,21 @@ public class Monster : MonoBehaviour {
 		state = MonsterState.MonsterState_IDLE;
 		animator.SetInteger("State", (int)state);
 
+		this.rigidbody2D.velocity = new Vector2(0, -2.0f);
+
+	}
+
+	public void SetMonster(Monster[] monster){
+		otherMonster = monster;
+
+
+	}
+
+
+	//fireMonster 일경 우Monster 전 체삭
+	public void Die(){
+		state = MonsterState.MonsterState_DIE;
+		animator.SetInteger("State", (int)state);
 	}
 
 	//2D 가없 을경 우3D
@@ -48,8 +65,16 @@ public class Monster : MonoBehaviour {
 		}*/
 		if(hp <= 0)
 		{
-			state = MonsterState.MonsterState_DIE;
-			animator.SetInteger("State", (int)state);
+			if(isFireMonster == true){
+				foreach(Monster monster in otherMonster)
+				{
+					if(monster == null)
+						continue;
+
+					monster.Die();
+				}
+			}
+			Die ();
 		}
 
 	}

@@ -1,11 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\shot&amp;avoid\Assets\Sources\Missile.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Sources\Monster.cs">
     <Files>
-      <File FileName="..\shot&amp;avoid\Assets\Sources\Missile.cs" Line="23" Column="50" />
-      <File FileName="..\shot&amp;avoid\Assets\Sources\Change.cs" Line="6" Column="1" />
-      <File FileName="..\shot&amp;avoid\Assets\Sources\DestroyZone.cs" Line="10" Column="10" />
-      <File FileName="..\shot&amp;avoid\Assets\Sources\MissileProcess.cs" Line="23" Column="20" />
+      <File FileName="Assets\Sources\Monster.cs" Line="34" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -50,6 +50,7 @@
      <Compile Include="Assets\Sources\Missile.cs" />
      <Compile Include="Assets\Sources\MissileProcess.cs" />
      <Compile Include="Assets\Sources\Monster.cs" />
+     <Compile Include="Assets\Sources\MonsterManager.cs" />
      <Compile Include="Assets\Sources\PlayerMove.cs" />
      <Compile Include="Assets\Sources\Test.cs" />
   </ItemGroup>
