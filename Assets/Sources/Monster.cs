@@ -5,6 +5,8 @@ using System.Collections;
 
 public class Monster : MonoBehaviour {
 
+
+	public GameObject gold = null;
 	private Animator animator = null;
 	private MonsterState state = MonsterState.MonsterState_NONE;
 	private float interval = 0.0f;
@@ -23,14 +25,19 @@ public class Monster : MonoBehaviour {
 
 	}
 
-	void Start () {
+	void Awake() {
 		//Component 를얻어온 다. 
 		// <가져 올컴포넌 트>
 		animator = this.GetComponent<Animator>();
 		state = MonsterState.MonsterState_IDLE;
 		animator.SetInteger("State", (int)state);
-
+		
 		this.rigidbody2D.velocity = new Vector2(0, -2.0f);
+	
+	}
+
+	void Start () {
+
 
 	}
 
@@ -45,6 +52,7 @@ public class Monster : MonoBehaviour {
 	public void Die(){
 		state = MonsterState.MonsterState_DIE;
 		animator.SetInteger("State", (int)state);
+		//CreateGold();
 	}
 
 	//2D 가없 을경 우3D
@@ -76,6 +84,17 @@ public class Monster : MonoBehaviour {
 			}
 			Die ();
 		}
+
+	}
+
+	//monster 가죽었 을 때골 드생성
+	void CreateGold(){
+
+		float x = Random.Range(-1.0f, 1.0f); 
+
+		GameObject obj = Instantiate(gold) as GameObject;
+		obj.transform.position =  this.transform.position;
+		obj.rigidbody2D.velocity = new Vector2(x, 5.0f);
 
 	}
 
